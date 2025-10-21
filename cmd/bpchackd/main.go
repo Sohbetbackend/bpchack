@@ -14,8 +14,9 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/pkg/errors"
 
-	"ykjam/bpchack/pkg"
-	"ykjam/bpchack/pkg/web"
+	"github.com/Sohbetbackend/bpchack/pkg/web"
+
+	"github.com/Sohbetbackend/bpchack/pkg"
 )
 
 type config struct {

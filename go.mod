@@ -1,4 +1,4 @@
-module ykjam/bpchack
+module github.com/Sohbetbackend/bpchack
 
 go 1.19
 

@@ -12,7 +12,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/pkg/errors"
 
-	"ykjam/bpchack/pkg"
+	"github.com/Sohbetbackend/bpchack/pkg"
 )
 
 func run() error {

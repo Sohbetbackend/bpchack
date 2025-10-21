@@ -14,7 +14,7 @@ import (
 	"github.com/apex/log"
 	"github.com/pkg/errors"
 
-	"ykjam/bpchack/pkg/bpc/response"
+	"github.com/Sohbetbackend/bpchack/pkg/bpc/response"
 )
 
 type Service interface {

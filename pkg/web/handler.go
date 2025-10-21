@@ -10,7 +10,7 @@ import (
 
 	"github.com/apex/log"
 
-	"ykjam/bpchack/pkg"
+	"github.com/Sohbetbackend/bpchack/pkg"
 )
 
 type HandlerContext interface {
