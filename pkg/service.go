@@ -81,8 +81,6 @@ func (s *service) getProcessFormUrl() string {
 
 func (s *service) Step1StartHack(ctx context.Context, req StartHackRequest) (resp StartHackResponse, err error) {
 	clog := log.WithFields(log.Fields{
-		"app":       req.Application,
-		"id":        req.Identity,
 		"operation": "Step 1. Start Hack",
 	})
 	clog.Info("Processing")
@@ -174,8 +172,6 @@ func (s *service) Step1StartHack(ctx context.Context, req StartHackRequest) (res
 
 func (s *service) Step2SubmitCard(ctx context.Context, req SubmitCardRequest) (resp SubmitCardResponse, err error) {
 	clog := log.WithFields(log.Fields{
-		"app":       req.Application,
-		"id":        req.Identity,
 		"operation": "Step 2. Submit Card",
 	})
 	clog.Info("Processing")
@@ -489,8 +485,6 @@ func (s *service) step2part3ACSSendPassword(ctx context.Context, pLog *log.Entry
 
 func (s *service) Step3ResendCode(ctx context.Context, req ResendCodeRequest) (resp ResendCodeResponse, err error) {
 	clog := log.WithFields(log.Fields{
-		"app":       req.Application,
-		"id":        req.Identity,
 		"operation": "Step 3. Resend Code",
 	})
 	clog.Info("Processing")
@@ -574,8 +568,6 @@ func (s *service) Step3ResendCode(ctx context.Context, req ResendCodeRequest) (r
 
 func (s *service) Step4ConfirmPayment(ctx context.Context, req ConfirmPaymentRequest) (resp ConfirmPaymentResponse, err error) {
 	clog := log.WithFields(log.Fields{
-		"app":       req.Application,
-		"id":        req.Identity,
 		"operation": "Step 4. Confirm Payment",
 	})
 	clog.Info("Processing")

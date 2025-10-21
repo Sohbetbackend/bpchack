@@ -4,9 +4,7 @@ import "fmt"
 
 type ConfirmPaymentRequest struct {
 	// application trying to use bpc hack, for information purpose only
-	Application string `json:"application"`
 	// to identify each user's request one from another
-	Identity        string `json:"identity"`
 	MDOrder         string `json:"md_order"`
 	ACSRequestId    string `json:"acs-request-id"`
 	ACSSessionUrl   string `json:"acs-session-url,omitempty"`

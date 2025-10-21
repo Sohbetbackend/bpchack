@@ -2,9 +2,7 @@ package pkg
 
 type StartHackRequest struct {
 	// application trying to use bpc hack, for information purpose only
-	Application string `json:"app"`
 	// to identify each user's request one from another
-	Identity string `json:"id"`
 	// url you received to redirect user to (during https://{crappy_bpc_server}/register.do request)
 	PaymentUrl string `json:"url"`
 }

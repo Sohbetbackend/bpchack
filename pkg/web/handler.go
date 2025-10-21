@@ -133,9 +133,7 @@ func (c *handlerContext) HandleStartHack(w http.ResponseWriter, r *http.Request)
 			"identity":    identity,
 		}).Debug("request received")
 		resp, err := c.service.Step1StartHack(ctx, pkg.StartHackRequest{
-			Application: application,
-			Identity:    identity,
-			PaymentUrl:  paymentUrl,
+			PaymentUrl: paymentUrl,
 		})
 		if err != nil {
 			clog.WithError(err).Error("step1 start hack failed")
@@ -173,13 +171,11 @@ func (c *handlerContext) HandleSubmitCard(w http.ResponseWriter, r *http.Request
 			"identity":    identity,
 		}).Debug("request received")
 		resp, err := c.service.Step2SubmitCard(ctx, pkg.SubmitCardRequest{
-			Application: application,
-			Identity:    identity,
-			MDOrder:     mdOrder,
-			CardNumber:  cardNumber,
-			Expiry:      cardExpiry,
-			NameOnCard:  nameOnCard,
-			CVCCode:     cvcCode,
+			MDOrder:    mdOrder,
+			CardNumber: cardNumber,
+			Expiry:     cardExpiry,
+			NameOnCard: nameOnCard,
+			CVCCode:    cvcCode,
 		})
 		if err != nil {
 			clog.WithError(err).Error("step2 submit card failed")
@@ -209,8 +205,6 @@ func (c *handlerContext) HandleResendCode(w http.ResponseWriter, r *http.Request
 			"identity":    identity,
 		}).Debug("request received")
 		resp, err := c.service.Step3ResendCode(ctx, pkg.ResendCodeRequest{
-			Application:   application,
-			Identity:      identity,
 			ACSRequestId:  acsRequestId,
 			ACSSessionUrl: acsSessionUrl,
 		})
@@ -253,8 +247,6 @@ func (c *handlerContext) HandleConfirmPayment(w http.ResponseWriter, r *http.Req
 			"identity":    identity,
 		}).Debug("request received")
 		resp, err := c.service.Step4ConfirmPayment(ctx, pkg.ConfirmPaymentRequest{
-			Application:     application,
-			Identity:        identity,
 			MDOrder:         mdOrder,
 			ACSRequestId:    acsRequestId,
 			ACSSessionUrl:   acsSessionUrl,

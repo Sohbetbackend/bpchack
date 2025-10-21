@@ -39,9 +39,6 @@ func run() error {
 	nameOnCard = os.Getenv("NAME_ON_CARD")
 	cardExpiry = os.Getenv("CARD_EXPIRY")
 
-	application := "bpchack-cli"
-	identity := os.Getenv("USER")
-
 mainLoop:
 	for !complete {
 		for !complete {
@@ -85,9 +82,7 @@ mainLoop:
 		}
 
 		step1Request := pkg.StartHackRequest{
-			Application: application,
-			Identity:    identity,
-			PaymentUrl:  paymentUrl,
+			PaymentUrl: paymentUrl,
 		}
 
 		step1Response, err = service.Step1StartHack(ctx, step1Request)
@@ -158,13 +153,11 @@ mainLoop:
 		cardCvc = input
 
 		step2Request := pkg.SubmitCardRequest{
-			Application: application,
-			Identity:    identity,
-			MDOrder:     step1Response.MDOrder,
-			CardNumber:  cardNumber,
-			Expiry:      cardExpiry,
-			NameOnCard:  nameOnCard,
-			CVCCode:     cardCvc,
+			MDOrder:    step1Response.MDOrder,
+			CardNumber: cardNumber,
+			Expiry:     cardExpiry,
+			NameOnCard: nameOnCard,
+			CVCCode:    cardCvc,
 		}
 
 		step2Response, err = service.Step2SubmitCard(ctx, step2Request)
@@ -208,8 +201,6 @@ mainLoop:
 				fmt.Print("resending code")
 				// resend code here
 				step3Request := pkg.ResendCodeRequest{
-					Application:   application,
-					Identity:      identity,
 					ACSRequestId:  step2Response.ACSRequestId,
 					ACSSessionUrl: step2Response.ACSSessionUrl,
 				}
@@ -251,8 +242,6 @@ mainLoop:
 		}
 		input = strings.TrimSpace(input)
 		step4Request := pkg.ConfirmPaymentRequest{
-			Application:     application,
-			Identity:        identity,
 			MDOrder:         step1Response.MDOrder,
 			ACSRequestId:    step2Response.ACSRequestId,
 			ACSSessionUrl:   step2Response.ACSSessionUrl,
